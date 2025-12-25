@@ -1,12 +1,12 @@
 //
-//  ContentView.swift
+//  HomeScreen.swift
 //  RecipesApp
 //
 //  Created by Azhar Ghurab on 25/06/1447 AH.
 //
 import SwiftUI
 
-struct ContentView: View {
+struct HomeScreen: View {
     // MARK: - State & Environment
     @StateObject private var viewModel = RecipeViewModel()
     @EnvironmentObject var languageManager: LanguageManager

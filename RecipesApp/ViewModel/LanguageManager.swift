@@ -9,7 +9,7 @@ import SwiftUI
 
 class LanguageManager: ObservableObject {
     @AppStorage("appLanguage") var language: String = "en"
-
+    
     func toggleLanguage() {
         language = (language == "en") ? "ar" : "en"
     }
