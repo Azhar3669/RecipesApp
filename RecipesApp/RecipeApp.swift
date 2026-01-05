@@ -9,27 +9,21 @@ import SwiftUI
 
 @main
 struct RecipesApp: App {
-    
     @StateObject private var languageManager = LanguageManager()
-    
-    init() {
-        UserDefaults.standard.set([languageManager.language], forKey: "AppleLanguages")
-        UserDefaults.standard.synchronize()
-    }
-    
+
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
                 .environmentObject(languageManager)
                 .environment(
                     \.layoutDirection,
-                     languageManager.language == "ar"
-                     ? .rightToLeft
-                     : .leftToRight
+                    languageManager.language == "ar" ? .rightToLeft : .leftToRight
                 )
-            
-            SplashScreenView()
-            
+                .onAppear {
+                    UserDefaults.standard.set([languageManager.language], forKey: "AppleLanguages")
+                    UserDefaults.standard.synchronize()
+                }
         }
     }
 }
+

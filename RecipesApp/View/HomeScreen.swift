@@ -104,7 +104,7 @@ struct HomeScreen: View {
                     Button {
                         languageManager.toggleLanguage()
                     } label: {
-                        Text(languageManager.language == "en" ? "AR 🇸🇦" : "EN 🇺🇸")
+                        Text(languageManager.language == "en" ? "EN 🇺🇸" : "AR 🇸🇦")
                             .font(.caption)
                             .padding(6)
                             .background(Color.orange.opacity(0.2))
