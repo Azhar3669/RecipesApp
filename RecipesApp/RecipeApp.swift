@@ -15,7 +15,7 @@ struct RecipesApp: App {
         WindowGroup {
             SplashScreenView()
                 .environmentObject(languageManager)
-                .environment(\.layoutDirection, languageManager.layoutDirection)
+//                .environment(\.layoutDirection, languageManager.layoutDirection)
         }
     }
 }

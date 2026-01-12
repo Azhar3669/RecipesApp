@@ -50,7 +50,7 @@ struct SplashScreenView: View {
                 Button {
                     languageManager.toggleLanguage()
                 } label: {
-                    Text(languageManager.language == "en" ? "AR 🇸🇦" : "EN 🇺🇸")
+                    Text(languageManager.language == "ar" ? "AR 🇸🇦" : "EN 🇺🇸")
                         .font(.caption)
                         .padding(6)
                         .background(Color.orange.opacity(0.2))

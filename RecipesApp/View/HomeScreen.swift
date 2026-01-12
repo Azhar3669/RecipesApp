@@ -200,6 +200,6 @@ struct RecipeImage: View {
 // MARK: - Preview
 
 #Preview {
-   HomeScreen()
+    SplashScreenView()
         .environmentObject(LanguageManager())
 }
