@@ -15,15 +15,7 @@ struct RecipesApp: App {
         WindowGroup {
             SplashScreenView()
                 .environmentObject(languageManager)
-                .environment(
-                    \.layoutDirection,
-                    languageManager.language == "ar" ? .rightToLeft : .leftToRight
-                )
-                .onAppear {
-                    UserDefaults.standard.set([languageManager.language], forKey: "AppleLanguages")
-                    UserDefaults.standard.synchronize()
-                }
+                .environment(\.layoutDirection, languageManager.layoutDirection)
         }
     }
 }
-

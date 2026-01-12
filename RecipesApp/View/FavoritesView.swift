@@ -4,7 +4,6 @@
 //
 //  Created by Azhar Ghurab on 25/06/1447 AH.
 //
-
 import SwiftUI
 
 struct FavoritesView: View {
@@ -12,7 +11,7 @@ struct FavoritesView: View {
     @EnvironmentObject var viewModel: RecipeViewModel
     @EnvironmentObject var languageManager: LanguageManager
     @Environment(\.dismiss) var dismiss
-
+    
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -22,17 +21,17 @@ struct FavoritesView: View {
                     Text(languageManager.language == "en"
                          ? "No favorite recipes."
                          : "لا توجد وصفات مفضلة.")
-                        .foregroundColor(.brown)
-                        .padding()
+                    .foregroundColor(.brown)
+                    .padding()
                 }
                 // MARK: Favorites List
                 else {
                     List {
                         ForEach(viewModel.favorites) { recipe in
                             NavigationLink(destination:
-                                RecipeDetailView(recipe: recipe)
-                                    .environmentObject(languageManager)
-                                    .environmentObject(viewModel)
+                                            RecipeDetailView(recipe: recipe)
+                                .environmentObject(languageManager)
+                                .environmentObject(viewModel)
                             ) {
                                 HStack(spacing: 12) {
                                     // MARK: Recipe Image
@@ -53,21 +52,21 @@ struct FavoritesView: View {
                                             .cornerRadius(10)
                                             .clipped()
                                     }
-
+                                    
                                     // MARK: Recipe Info
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text(recipe.name)
                                             .font(.headline)
                                             .bold()
-
+                                        
                                         Text(recipe.instructions)
                                             .font(.subheadline)
                                             .foregroundColor(.gray)
                                             .lineLimit(2)
                                     }
-
+                                    
                                     Spacer()
-
+                                    
                                     // MARK: Favorite Button
                                     Button {
                                         viewModel.toggleFavorite(recipe)
@@ -82,6 +81,10 @@ struct FavoritesView: View {
                         }
                     }
                     .listStyle(.plain)
+                    .environment(\.layoutDirection,
+                                  languageManager.language == "en"
+                                  ? .rightToLeft:
+                            .leftToRight)
                 }
             }
             // MARK: Navigation Bar
@@ -103,4 +106,3 @@ struct FavoritesView: View {
         }
     }
 }
-
